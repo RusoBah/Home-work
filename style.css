@@ -61,6 +61,7 @@ body {
     font-size: 16px;
     cursor: pointer;
     color: #fff;
+    text-align: center;
     height: 60px;
 
 }
@@ -72,12 +73,17 @@ body {
 }
 .social-element{
     display: flex;
-    justify-content: grid;
+    justify-content: flex-start;
     align-items: center;
     margin-left: 2%;
 }
 .child{
     padding-left: 2%;
+}
+.btn .title{
+    display: flex;
+    align-items: center;
+ 
 }
 
 /*Вторая страница*/
