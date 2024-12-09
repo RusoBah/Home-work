@@ -122,3 +122,6 @@ a{
     position: relative;
     left: 20%;
 }
+.content__table{
+    background-color: azure;
+}
