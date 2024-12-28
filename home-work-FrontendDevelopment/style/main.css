@@ -173,3 +173,6 @@ table.content__table th {
 	color: #fff; 
 	font-weight: normal;
 }
+td{
+    text-align: center;
+}
