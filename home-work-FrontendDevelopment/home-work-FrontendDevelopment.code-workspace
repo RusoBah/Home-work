@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "home-work-FrontendDevelopment",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "home-work-FrontendDevelopment"
+	}
+}
