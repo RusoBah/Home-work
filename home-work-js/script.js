@@ -1,25 +1,60 @@
-import { concatStrings } from "./script/task5.js";
-import { calculateAverage } from "./script/task4.js";
-import { calculateFallDistance } from "./script/task3.js";
-import { greet } from "./script/hello.js";
-import {celsiusToFahrenheit} from "./script/converter.js";
 
-// 1-е задание
-let myName = "Ruslan";
-greet(myName);
+let taskList = [];
 
-// 2-е задание
-let celsius = prompt("Введите градусы Цельсия: ");
-celsiusToFahrenheit(celsius);
+const addTask = (name)=> {
+    if (!name) {
+        console.log("Название задачи не может быть пустым.");
+        return;
+    }
+    const task = {
+        name: name,
+        completed: false
+    };
+    taskList.push(task);
+    console.log(`Задача "${name}" добавлена.`);
+}
 
-// 3-е задание
-let time = prompt("Введите время за которое упал объект(сек): ");
-calculateFallDistance(time);
+// Функция для пометки задачи как выполненной
+const completeTask = (name) => {
+    const task = taskList.find(task => task.name === name);
+    if (task) {
+        task.completed = true;
+        console.log(`Задача "${name}" выполнена.`);
+    } else {
+        console.log(`Задача "${name}" не найдена.`);
+    }
+}
 
-// 4-е задание
-let result = calculateAverage(5, 6, 11);
-alert(`Среднее значение введённых чисел равно: ${result}`);
+// Функция для удаления задачи
+const deleteTask = (name) => {
+    const index = taskList.findIndex(task => task.name === name);
+    if (index !== -1) {
+        taskList.splice(index, 1);
+        console.log(`Задача "${name}" удалена.`);
+    } else {
+        console.log(`Задача "${name}" не найдена.`);
+    }
+}
 
-// 5-е задание
-let resultat = concatStrings("Умпа", "Лумпа");
-alert(resultat);
+// Функция для отображения всех задач
+const displayTasks = () => {
+    if (taskList.length === 0) {
+        console.log("Список задач пуст.");
+        return;
+    }
+    taskList.forEach(task => {
+        const status = task.completed ? "Выполнена" : "Не выполнена";
+        console.log(`Задача: "${task.name}", Статус: ${status}`);
+    });
+}
+
+
+
+
+addTask("Купить продукты");
+addTask("Сделать домашнее задание");
+displayTasks();
+completeTask("Купить продукты");
+displayTasks();
+deleteTask("Сделать домашнее задание");
+displayTasks();
